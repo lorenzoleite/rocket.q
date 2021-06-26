@@ -15,7 +15,7 @@ header {
 #bg {
     grid-area: left;
 
-    background: url('/assets/home-bg-img.svg') no-repeat top/contain;
+    background: url('/images/home-bg-img.svg') no-repeat top/contain;
     background-position-x: -10rem;
 }
 
@@ -42,6 +42,12 @@ main h2 {
 input {
     padding: 0 1.6rem;
     border: 0.2rem solid var(--grey-blue);
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
 }
 
 input, button, .button {
