@@ -13,17 +13,32 @@
     display: flex;
 }
 
+#room header .buttons #room-id {
+    background: transparent;
+    outline: none;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: var(--blue);
+    padding: 1.3rem 1.6rem;
+    width: 13.4rem;
+    margin-right: -3rem;
+}
+
+#room header .buttons .inside-button {
+    background: transparent;
+}
+
 #room header .buttons .button:nth-child(1) {
     margin-right: 0.8rem;
-    padding: 1.3rem 1.6rem;
 }
 
 #room header .buttons .button:nth-child(1) img {
     width: 2rem;
     height: 2rem;
-    margin-left: 1.1rem;
 }
-
 #room header .buttons .button:nth-child(2) {
     padding: 1.3rem 3.2rem;
 }

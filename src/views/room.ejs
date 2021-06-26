@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
         
         <script src="/scripts/main.js" defer type="module"></script>
+        
     </head>
     <body>
         <div id="room" class="content">
@@ -23,10 +24,18 @@
                     <img src="/images/logo.svg" alt="Rocket.Q Logo"/>
                 </a>
                 <div class="buttons">
-                    <div class="button outlined" id="room-id" data-id="<%= roomId%>">
+                    <div class="button outlined">
+                        <input id="room-id" value="#<%= roomId%>" data-id="<%= roomId%>">
+                            <button class="inside-button">
+                                <img src="/images/copy.svg" alt="Copiar número da sala"/>
+                            </button>
+                        </input>
+                    </div>
+                    <!--<div class="button outlined" id="room-id" data-id="<%= roomId%>">
                         #<%= roomId%>
                         <img src="/images/copy.svg" alt="Copiar número da sala"/>
-                    </div>
+                        
+                    </div>-->
                     <a href="/create-pass" class="button">
                         <img src="/images/users-white.svg" alt="Criar uma sala">
                         Criar Sala
@@ -73,7 +82,7 @@
                                 </div>
                                 <div class="actions">
                                     <a href="#" class="check" data-id="<%= question.id %>">
-                                        <img src="/images/check.svg" alt="Marcar como lida"/>
+                                        <img src="/images/unchecked.svg" alt="Marcar como lida"/>
                                         Marcar como lida
                                     </a>
                                     <a href="#" class="delete" data-id="<%= question.id %>">
@@ -95,6 +104,10 @@
                                     </div>
                                 </div>
                                 <div class="actions">
+                                    <!--<a href="#" class="uncheck" data-id="<%= questionRead.id %>">
+                                        <img src="/images/checked.svg" alt="Desmarcar como lida"/>
+                                        Desmarcar como lida
+                                    </a>-->
                                     <a href="#" class="delete" data-id="<%= questionRead.id %>">
                                         <img src="/images/trash.svg" alt="Excluir"/>
                                         Excluir

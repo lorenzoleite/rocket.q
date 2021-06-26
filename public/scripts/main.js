@@ -38,3 +38,18 @@ function handleClick(event, check = true) {
 
     modal.open();
 }
+
+const insideButtons = document.querySelectorAll(".buttons button.inside-button");
+
+insideButtons.forEach(button => { //mesma variavel que deve ser colocada junto com o listener, pode ser qualquer nome
+    //adicionar a escuta em cada botão, percorrendo todos
+    button.addEventListener("click", execCopy); //quando um botão for clicado, o eventlistener vai estar escutando e no clique vai fazer a função open
+});
+
+function execCopy() {
+    var copyText = document.getElementById("room-id");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("Código copiado: " + copyText.value);
+}
