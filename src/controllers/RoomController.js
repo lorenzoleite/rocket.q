@@ -4,6 +4,7 @@ const Database = require("../db/config");
 module.exports = {
     async create(req, res) {
         const db = await Database();
+        const roomName = req.body.name;
         const pass = req.body.password;
         let roomId;
         let isRoom = true;
@@ -24,9 +25,11 @@ module.exports = {
                 /*Insere a sala no banco*/
                 await db.run(`INSERT INTO rooms (
                     id,
+                    name,
                     pass
                 ) VALUES (
                     ${parseInt(roomId)},
+                    "${roomName}",
                     ${pass}
                 )`);
             }
@@ -41,6 +44,7 @@ module.exports = {
         const db = await Database();
 
         const roomId = req.params.room;
+        const roomName = await db.get(`SELECT name FROM rooms WHERE id = ${roomId}`);
         const questions = await db.all(`SELECT * FROM questions WHERE room = ${roomId} and read = 0`); //somente as perguntas daquela sala
         const questionsRead = await db.all(`SELECT * FROM questions WHERE room = ${roomId} and read = 1`);
         let isNoQuestions;
@@ -51,7 +55,7 @@ module.exports = {
             }
         }
 
-        res.render("room", {roomId: roomId, questions: questions, questionsRead: questionsRead, isNoQuestions: isNoQuestions});
+        res.render("room", {roomId: roomId, roomName: roomName, questions: questions, questionsRead: questionsRead, isNoQuestions: isNoQuestions});
 
     },
 
